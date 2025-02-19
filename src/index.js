@@ -30,17 +30,14 @@ app.use("/family", familyRoute);
 
 app.get("/", (req, res) => res.send("server is running!"));
 
-module.exports = app;
-// const port = process.env.PORT || 3001;
-// db.getConnection((err, connection) => {
-//   if (err) {
-//     console.error("Failed to connect to the database:", err);
-//     process.exit(1);
-//   } else {
-//     console.log("Database connected successfully");
-//     connection.release();
-//     app.listen(port, () =>
-//       console.log(`Server is running on http://localhost:${port}`)
-//     );
-//   }
-// });
+// const port = process.env.PORT;
+db.getConnection((err, connection) => {
+  if (err) {
+    console.error("Failed to connect to the database:", err);
+    process.exit(1);
+  } else {
+    console.log("Database connected successfully");
+    connection.release();
+    app.listen();
+  }
+});
