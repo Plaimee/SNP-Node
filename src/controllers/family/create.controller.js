@@ -1,5 +1,4 @@
-const { formatFilename } = require("../../helper/convertFilename");
-const { uploadFile } = require("../../helper/uploadFile");
+const { uploadFile, formatFilename } = require("../../helper/mangeFile");
 const path = require("path");
 const fs = require("fs");
 const { db } = require("../../config/database");
@@ -30,7 +29,6 @@ const generateFamCode = async (db) => {
 
 exports.createFamilyController = async (req, res) => {
   try {
-    console.log(req.body);
     const { usrId, famName, nickName, roleId, usrImg } = req.body;
     const file = req.file;
 
